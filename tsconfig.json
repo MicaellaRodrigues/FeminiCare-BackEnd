@@ -15,8 +15,7 @@
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
     "typeRoots": [
-      "./node_modules/@types",
-      "./src"
+      "./node_modules/@types"
     ]
   },
   "include": [

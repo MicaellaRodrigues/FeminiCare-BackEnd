@@ -19,16 +19,16 @@ export const protect = async (req: Request, res: Response, next: NextFunction): 
   try {
     const authReq = req as AuthenticatedRequest;
     let token;
-
+    
     // Check for token in headers
     if (req.headers.authorization && req.headers.authorization.startsWith('Bearer')) {
       token = req.headers.authorization.split(' ')[1];
     }
-
+    
     if (!token) {
       throw new ApiError(401, 'Not authorized, no token');
     }
-
+    
     // Verify token
     const decoded = jwt.verify(token, process.env.JWT_SECRET || 'your-secret-key') as JwtPayload;
     
